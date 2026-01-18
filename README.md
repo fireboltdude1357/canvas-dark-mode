@@ -37,4 +37,3 @@ Works on all Canvas LMS instances hosted on `*.instructure.com`
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details
-# canvas-dark-mode
