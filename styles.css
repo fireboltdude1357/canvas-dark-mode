@@ -206,6 +206,29 @@ html:not(.canvas-light-mode)button:not(.canvas-dark-mode-toggle):hover {
   background-color: var(--dark-bg-hover) !important;
 }
 
+/* Button groups (used for Week/Month/Agenda toggle) */
+html:not(.canvas-light-mode) .btn-group,
+html:not(.canvas-light-mode) .btn-group .btn,
+html:not(.canvas-light-mode) .btn-group button,
+html:not(.canvas-light-mode) .ButtonGroup,
+html:not(.canvas-light-mode) .ButtonGroup button,
+html:not(.canvas-light-mode) [class*="ButtonGroup"],
+html:not(.canvas-light-mode) [class*="ButtonGroup"] button,
+html:not(.canvas-light-mode) [role="group"] button {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode) .btn-group .btn.active,
+html:not(.canvas-light-mode) .btn-group .btn:active,
+html:not(.canvas-light-mode) .ButtonGroup button[aria-pressed="true"],
+html:not(.canvas-light-mode) [role="group"] button[aria-pressed="true"],
+html:not(.canvas-light-mode) [role="group"] button[aria-selected="true"] {
+  background-color: var(--dark-accent) !important;
+  color: white !important;
+}
+
 html:not(.canvas-light-mode).btn-primary,
 html:not(.canvas-light-mode).Button--primary {
   background-color: var(--dark-accent) !important;
@@ -294,6 +317,198 @@ html:not(.canvas-light-mode).fc-widget-header,
 html:not(.canvas-light-mode).fc-widget-content {
   background-color: var(--dark-bg-secondary) !important;
   border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Calendar toolbar buttons - Today, Week, Month, Agenda, navigation, add */
+html:not(.canvas-light-mode) .fc-toolbar,
+html:not(.canvas-light-mode) .fc-toolbar button,
+html:not(.canvas-light-mode) .fc-button,
+html:not(.canvas-light-mode) .fc-button-primary,
+html:not(.canvas-light-mode) .fc-today-button,
+html:not(.canvas-light-mode) .fc-prev-button,
+html:not(.canvas-light-mode) .fc-next-button,
+html:not(.canvas-light-mode) .fc-dayGridMonth-button,
+html:not(.canvas-light-mode) .fc-timeGridWeek-button,
+html:not(.canvas-light-mode) .fc-listWeek-button,
+html:not(.canvas-light-mode) .btn-group .btn,
+html:not(.canvas-light-mode) #calendar-header button,
+html:not(.canvas-light-mode) #calendar_header button,
+html:not(.canvas-light-mode) .calendar-header button {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode) .fc-button:hover,
+html:not(.canvas-light-mode) .fc-button-primary:hover,
+html:not(.canvas-light-mode) #calendar-header button:hover,
+html:not(.canvas-light-mode) .calendar-header button:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Active/selected view button */
+html:not(.canvas-light-mode) .fc-button-active,
+html:not(.canvas-light-mode) .fc-button-primary:not(:disabled).fc-button-active,
+html:not(.canvas-light-mode) .btn-group .btn.active {
+  background-color: var(--dark-accent) !important;
+  color: white !important;
+}
+
+/* Add event button (the + button) */
+html:not(.canvas-light-mode) #create_new_event_link,
+html:not(.canvas-light-mode) .calendar-add-event,
+html:not(.canvas-light-mode) .fc-addEventButton-button,
+html:not(.canvas-light-mode) [aria-label*="Add"],
+html:not(.canvas-light-mode) [aria-label*="add"],
+html:not(.canvas-light-mode) [aria-label*="Create"],
+html:not(.canvas-light-mode) [aria-label*="create"],
+html:not(.canvas-light-mode) [data-testid*="add"],
+html:not(.canvas-light-mode) [data-testid*="create"] {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Calendar header/toolbar container */
+html:not(.canvas-light-mode) .calendar-header,
+html:not(.canvas-light-mode) #calendar-header,
+html:not(.canvas-light-mode) #calendar_header,
+html:not(.canvas-light-mode) .fc-header-toolbar,
+html:not(.canvas-light-mode) .fc-toolbar-chunk {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Calendar page - right sidebar */
+html:not(.canvas-light-mode) #right-side-wrapper,
+html:not(.canvas-light-mode) .calendar-list,
+html:not(.canvas-light-mode) .calendar-list-header,
+html:not(.canvas-light-mode) #calendar-list-holder,
+html:not(.canvas-light-mode) #calendar_list,
+html:not(.canvas-light-mode) .calendar-list-holder,
+html:not(.canvas-light-mode) #undated-events,
+html:not(.canvas-light-mode) #undated_events,
+html:not(.canvas-light-mode) .undated-events,
+html:not(.canvas-light-mode) .undated_events_list,
+html:not(.canvas-light-mode) #calendar-feed,
+html:not(.canvas-light-mode) .calendar-feed,
+html:not(.canvas-light-mode) [class*="calendar-list"],
+html:not(.canvas-light-mode) [class*="CalendarList"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Mini calendar widget */
+html:not(.canvas-light-mode) .mini_calendar,
+html:not(.canvas-light-mode) .mini-calendar,
+html:not(.canvas-light-mode) #mini_calendar,
+html:not(.canvas-light-mode) .mini_calendar_container,
+html:not(.canvas-light-mode) .calendar_container,
+html:not(.canvas-light-mode) #calendar_wrapper,
+html:not(.canvas-light-mode) .fc-header,
+html:not(.canvas-light-mode) .fc-button,
+html:not(.canvas-light-mode) .fc-state-default,
+html:not(.canvas-light-mode) table.fc-border-separate,
+html:not(.canvas-light-mode) .mini_calendar table,
+html:not(.canvas-light-mode) .mini_calendar th,
+html:not(.canvas-light-mode) .mini_calendar td,
+html:not(.canvas-light-mode) #mini_calendar table,
+html:not(.canvas-light-mode) #mini_calendar th,
+html:not(.canvas-light-mode) #mini_calendar td {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Mini calendar navigation arrows and header */
+html:not(.canvas-light-mode) .mini_calendar .prev-month,
+html:not(.canvas-light-mode) .mini_calendar .next-month,
+html:not(.canvas-light-mode) #mini_calendar .prev-month,
+html:not(.canvas-light-mode) #mini_calendar .next-month,
+html:not(.canvas-light-mode) .mini_calendar button,
+html:not(.canvas-light-mode) #mini_calendar button,
+html:not(.canvas-light-mode) .mini-cal button,
+html:not(.canvas-light-mode) .mini-cal-header,
+html:not(.canvas-light-mode) .mini-cal-header button {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+/* Mini calendar header with month/year and arrows */
+html:not(.canvas-light-mode) .navigation_buttons,
+html:not(.canvas-light-mode) .navigation_buttons button,
+html:not(.canvas-light-mode) .navigation_buttons a,
+html:not(.canvas-light-mode) #mini_calendar .navigation_buttons,
+html:not(.canvas-light-mode) .mini_calendar .navigation_buttons {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Calendar context list (course calendars with colored squares) */
+html:not(.canvas-light-mode) .context-list,
+html:not(.canvas-light-mode) .context-list-item,
+html:not(.canvas-light-mode) .ContextList,
+html:not(.canvas-light-mode) [class*="ContextList"],
+html:not(.canvas-light-mode) .calendars-list,
+html:not(.canvas-light-mode) .calendars-list li {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Undated section */
+html:not(.canvas-light-mode) .undated-events-section,
+html:not(.canvas-light-mode) .Undated-events,
+html:not(.canvas-light-mode) [class*="undated"],
+html:not(.canvas-light-mode) [class*="Undated"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Calendar Feed button */
+html:not(.canvas-light-mode) .calendar-feed-btn,
+html:not(.canvas-light-mode) [class*="CalendarFeed"],
+html:not(.canvas-light-mode) [class*="calendar-feed"] {
+  background-color: var(--dark-bg-tertiary) !important;
+  color: var(--dark-text-primary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+/* Calendar page - aggressive targeting for sidebar */
+html:not(.canvas-light-mode) #calendar-app aside,
+html:not(.canvas-light-mode) #calendar-app aside *,
+html:not(.canvas-light-mode) #calendar_container aside,
+html:not(.canvas-light-mode) #calendar_container aside *,
+html:not(.canvas-light-mode) .calendar__wrapper aside,
+html:not(.canvas-light-mode) .calendar__wrapper aside *,
+html:not(.canvas-light-mode) #right-side .rs-margin-all,
+html:not(.canvas-light-mode) #right-side .rs-margin-all * {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Target the specific calendar sidebar sections */
+html:not(.canvas-light-mode) .calendar-sidebar,
+html:not(.canvas-light-mode) .calendar-sidebar div,
+html:not(.canvas-light-mode) .calendar-sidebar span,
+html:not(.canvas-light-mode) .calendar-sidebar ul,
+html:not(.canvas-light-mode) .calendar-sidebar li,
+html:not(.canvas-light-mode) .calendar-sidebar h2,
+html:not(.canvas-light-mode) .calendar-sidebar h3 {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Calendar sidebar sections by structure */
+html:not(.canvas-light-mode) #right-side > div,
+html:not(.canvas-light-mode) #right-side > div > div,
+html:not(.canvas-light-mode) #right-side > div > div > div,
+html:not(.canvas-light-mode) #right-side h2,
+html:not(.canvas-light-mode) #right-side h3,
+html:not(.canvas-light-mode) #right-side ul,
+html:not(.canvas-light-mode) #right-side li {
+  background-color: var(--dark-bg-secondary) !important;
   color: var(--dark-text-primary) !important;
 }
 
