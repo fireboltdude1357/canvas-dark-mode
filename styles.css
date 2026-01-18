@@ -1,0 +1,1303 @@
+/* Canvas Dark Mode Extension Styles */
+
+:root {
+  --dark-bg-primary: #1a1a1a;
+  --dark-bg-secondary: #242424;
+  --dark-bg-tertiary: #2d2d2d;
+  --dark-bg-hover: #363636;
+  --dark-text-primary: #e4e4e4;
+  --dark-text-secondary: #b3b3b3;
+  --dark-text-muted: #888888;
+  --dark-border: #404040;
+  --dark-accent: #4a9eff;
+  --dark-accent-hover: #6bb3ff;
+  --dark-success: #4caf50;
+  --dark-warning: #ff9800;
+  --dark-error: #f44336;
+}
+
+/* ================================================
+   IMMEDIATE DARK MODE - Prevents flash of white
+   Apply dark background instantly before JS loads
+   ================================================ */
+html {
+  background-color: var(--dark-bg-primary) !important;
+}
+
+body {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* When explicitly disabled via class, revert to light */
+html.canvas-light-mode,
+html.canvas-light-mode body {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+/* Smooth transitions only after page load (added by JS) */
+body.canvas-transitions-enabled,
+body.canvas-transitions-enabled * {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Light mode overrides - revert everything when disabled */
+html.canvas-light-mode * {
+  background-color: revert !important;
+  color: revert !important;
+  border-color: revert !important;
+}
+
+/* Main content areas */
+html:not(.canvas-light-mode)#application,
+html:not(.canvas-light-mode)#wrapper,
+html:not(.canvas-light-mode)#main,
+html:not(.canvas-light-mode)#content,
+html:not(.canvas-light-mode)#content-wrapper,
+html:not(.canvas-light-mode).ic-app-main-content,
+html:not(.canvas-light-mode).ic-Layout-contentMain,
+html:not(.canvas-light-mode).with-left-side,
+html:not(.canvas-light-mode).ic-app-main-content__secondary {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Navigation */
+html:not(.canvas-light-mode)#left-side,
+html:not(.canvas-light-mode).ic-app-nav-toggle-and-logo,
+html:not(.canvas-light-mode).ic-app-header,
+html:not(.canvas-light-mode).ic-app-header__main-navigation,
+html:not(.canvas-light-mode)nav[aria-label="Global Navigation"] {
+  background-color: var(--dark-bg-secondary) !important;
+}
+
+html:not(.canvas-light-mode).ic-app-header__menu-list-item a,
+html:not(.canvas-light-mode).ic-app-header__menu-list-link {
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode).ic-app-header__menu-list-item:hover,
+html:not(.canvas-light-mode).ic-app-header__menu-list-link:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Side navigation */
+html:not(.canvas-light-mode).section,
+html:not(.canvas-light-mode)#section-tabs,
+html:not(.canvas-light-mode).nav-pills > li > a,
+html:not(.canvas-light-mode)#section-tabs li a {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode)#section-tabs li a:hover,
+html:not(.canvas-light-mode).nav-pills > li > a:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+html:not(.canvas-light-mode)#section-tabs li.section a.active,
+html:not(.canvas-light-mode).nav-pills > li.active > a {
+  background-color: var(--dark-accent) !important;
+  color: white !important;
+}
+
+/* Cards and modules */
+html:not(.canvas-light-mode).ic-DashboardCard,
+html:not(.canvas-light-mode).ic-DashboardCard__header,
+html:not(.canvas-light-mode).ic-DashboardCard__action-container,
+html:not(.canvas-light-mode).card-content,
+html:not(.canvas-light-mode).context_module,
+html:not(.canvas-light-mode).context_module_item,
+html:not(.canvas-light-mode).item-group-condensed .ig-header,
+html:not(.canvas-light-mode).item-group-condensed .ig-list .ig-row {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+html:not(.canvas-light-mode).ic-DashboardCard:hover {
+  background-color: var(--dark-bg-tertiary) !important;
+}
+
+html:not(.canvas-light-mode).ic-DashboardCard__header-title,
+html:not(.canvas-light-mode).ic-DashboardCard__header-subtitle,
+html:not(.canvas-light-mode).ig-title,
+html:not(.canvas-light-mode).ig-info {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Tables */
+html:not(.canvas-light-mode)table,
+html:not(.canvas-light-mode).ic-Table,
+html:not(.canvas-light-mode).table,
+html:not(.canvas-light-mode).table-striped {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode)table th,
+html:not(.canvas-light-mode)table td,
+html:not(.canvas-light-mode).ic-Table th,
+html:not(.canvas-light-mode).ic-Table td {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode)table tr:nth-child(even),
+html:not(.canvas-light-mode).table-striped tbody tr:nth-child(odd) {
+  background-color: var(--dark-bg-tertiary) !important;
+}
+
+html:not(.canvas-light-mode)table tr:hover,
+html:not(.canvas-light-mode).ic-Table tr:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Forms and inputs */
+html:not(.canvas-light-mode)input,
+html:not(.canvas-light-mode)textarea,
+html:not(.canvas-light-mode)select,
+html:not(.canvas-light-mode).ic-Input,
+html:not(.canvas-light-mode).ic-Form-control {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode)input:focus,
+html:not(.canvas-light-mode)textarea:focus,
+html:not(.canvas-light-mode)select:focus {
+  border-color: var(--dark-accent) !important;
+  outline-color: var(--dark-accent) !important;
+}
+
+html:not(.canvas-light-mode)input::placeholder,
+html:not(.canvas-light-mode)textarea::placeholder {
+  color: var(--dark-text-muted) !important;
+}
+
+/* Buttons */
+html:not(.canvas-light-mode).btn,
+html:not(.canvas-light-mode).Button,
+html:not(.canvas-light-mode)button:not(.canvas-dark-mode-toggle) {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode).btn:hover,
+html:not(.canvas-light-mode).Button:hover,
+html:not(.canvas-light-mode)button:not(.canvas-dark-mode-toggle):hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+html:not(.canvas-light-mode).btn-primary,
+html:not(.canvas-light-mode).Button--primary {
+  background-color: var(--dark-accent) !important;
+  border-color: var(--dark-accent) !important;
+  color: white !important;
+}
+
+html:not(.canvas-light-mode).btn-primary:hover,
+html:not(.canvas-light-mode).Button--primary:hover {
+  background-color: var(--dark-accent-hover) !important;
+}
+
+/* Links */
+html:not(.canvas-light-mode)a {
+  color: var(--dark-accent) !important;
+}
+
+html:not(.canvas-light-mode)a:hover {
+  color: var(--dark-accent-hover) !important;
+}
+
+/* Headers and titles */
+html:not(.canvas-light-mode)h1,
+html:not(.canvas-light-mode)h2,
+html:not(.canvas-light-mode)h3,
+html:not(.canvas-light-mode)h4,
+html:not(.canvas-light-mode)h5,
+html:not(.canvas-light-mode)h6,
+html:not(.canvas-light-mode).page-title,
+html:not(.canvas-light-mode).title {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Breadcrumbs */
+html:not(.canvas-light-mode).ic-app-crumbs,
+html:not(.canvas-light-mode)#breadcrumbs {
+  background-color: var(--dark-bg-secondary) !important;
+}
+
+html:not(.canvas-light-mode).ic-app-crumbs a,
+html:not(.canvas-light-mode)#breadcrumbs a {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* Announcements and discussions */
+html:not(.canvas-light-mode).discussion-topic,
+html:not(.canvas-light-mode).discussion-entry,
+html:not(.canvas-light-mode).announcement,
+html:not(.canvas-light-mode).discussionTopicIndexList .discussion-topic {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+html:not(.canvas-light-mode).discussion-reply-action,
+html:not(.canvas-light-mode).discussion-header-content {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Assignments */
+html:not(.canvas-light-mode).assignment,
+html:not(.canvas-light-mode).assignment-list,
+html:not(.canvas-light-mode).assignment_group,
+html:not(.canvas-light-mode)#assignments_for_student,
+html:not(.canvas-light-mode).assignment-date-available,
+html:not(.canvas-light-mode).assignment-date-due {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Grades */
+html:not(.canvas-light-mode)#grades_summary,
+html:not(.canvas-light-mode).student_assignment,
+html:not(.canvas-light-mode).grade-summary {
+  background-color: var(--dark-bg-secondary) !important;
+}
+
+html:not(.canvas-light-mode).student_assignment.odd {
+  background-color: var(--dark-bg-tertiary) !important;
+}
+
+/* Calendar */
+html:not(.canvas-light-mode).calendar,
+html:not(.canvas-light-mode).fc-view,
+html:not(.canvas-light-mode).fc-day,
+html:not(.canvas-light-mode).fc-widget-header,
+html:not(.canvas-light-mode).fc-widget-content {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Modals and dialogs */
+html:not(.canvas-light-mode).ui-dialog,
+html:not(.canvas-light-mode).ui-dialog-content,
+html:not(.canvas-light-mode).ui-dialog-titlebar,
+html:not(.canvas-light-mode).modal,
+html:not(.canvas-light-mode).modal-content,
+html:not(.canvas-light-mode).modal-header,
+html:not(.canvas-light-mode).modal-body,
+html:not(.canvas-light-mode).modal-footer {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Dropdowns */
+html:not(.canvas-light-mode).dropdown-menu,
+html:not(.canvas-light-mode).ui-menu,
+html:not(.canvas-light-mode).ui-autocomplete {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+html:not(.canvas-light-mode).dropdown-menu li a,
+html:not(.canvas-light-mode).ui-menu-item a {
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode).dropdown-menu li a:hover,
+html:not(.canvas-light-mode).ui-menu-item a:hover,
+html:not(.canvas-light-mode).ui-state-focus {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Rich Content Editor */
+html:not(.canvas-light-mode).tox,
+html:not(.canvas-light-mode).tox-tinymce,
+html:not(.canvas-light-mode).tox-editor-container,
+html:not(.canvas-light-mode).tox-edit-area,
+html:not(.canvas-light-mode).tox-edit-area__iframe,
+html:not(.canvas-light-mode).mce-content-body {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode).tox-toolbar,
+html:not(.canvas-light-mode).tox-toolbar__primary,
+html:not(.canvas-light-mode).tox-toolbar__overflow {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+html:not(.canvas-light-mode).tox-tbtn {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Quiz */
+html:not(.canvas-light-mode).quiz-header,
+html:not(.canvas-light-mode).quiz_sortable,
+html:not(.canvas-light-mode).question,
+html:not(.canvas-light-mode).question_holder,
+html:not(.canvas-light-mode).answer,
+html:not(.canvas-light-mode)#questions {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Files */
+html:not(.canvas-light-mode).ef-main,
+html:not(.canvas-light-mode).ef-directory,
+html:not(.canvas-light-mode).ef-item-row {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode).ef-item-row:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* People/Users */
+html:not(.canvas-light-mode).roster,
+html:not(.canvas-light-mode).roster-user,
+html:not(.canvas-light-mode).user_content {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Notifications and alerts */
+html:not(.canvas-light-mode).alert,
+html:not(.canvas-light-mode).ic-flash-info,
+html:not(.canvas-light-mode).ic-flash-success,
+html:not(.canvas-light-mode).ic-flash-warning,
+html:not(.canvas-light-mode).ic-flash-error {
+  border-color: var(--dark-border) !important;
+}
+
+html:not(.canvas-light-mode).ic-flash-info {
+  background-color: var(--dark-bg-tertiary) !important;
+}
+
+/* Inbox / Conversations */
+html:not(.canvas-light-mode).message-list,
+html:not(.canvas-light-mode).message-item-view,
+html:not(.canvas-light-mode).message-detail,
+html:not(.canvas-light-mode).conversations {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Rubrics */
+html:not(.canvas-light-mode).rubric,
+html:not(.canvas-light-mode).rubric_table,
+html:not(.canvas-light-mode).rubric_criterion {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Speedgrader */
+html:not(.canvas-light-mode)#speedgrader_iframe,
+html:not(.canvas-light-mode)#gradebook_header,
+html:not(.canvas-light-mode).ui-selectmenu-menu {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Scrollbars */
+html:not(.canvas-light-mode)::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html:not(.canvas-light-mode)::-webkit-scrollbar-track {
+  background: var(--dark-bg-primary);
+}
+
+html:not(.canvas-light-mode)::-webkit-scrollbar-thumb {
+  background: var(--dark-border);
+  border-radius: 5px;
+}
+
+html:not(.canvas-light-mode)::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-text-muted);
+}
+
+/* Generic elements */
+html:not(.canvas-light-mode)div,
+html:not(.canvas-light-mode)span,
+html:not(.canvas-light-mode)p,
+html:not(.canvas-light-mode)li,
+html:not(.canvas-light-mode)label {
+  color: inherit;
+}
+
+html:not(.canvas-light-mode)hr {
+  border-color: var(--dark-border) !important;
+}
+
+html:not(.canvas-light-mode)code,
+html:not(.canvas-light-mode)pre {
+  background-color: var(--dark-bg-tertiary) !important;
+  color: var(--dark-text-primary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+/* SVG icons */
+html:not(.canvas-light-mode)svg {
+  fill: currentColor;
+}
+
+html:not(.canvas-light-mode).ic-icon-svg {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Footer */
+html:not(.canvas-light-mode)#footer,
+html:not(.canvas-light-mode)footer {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-secondary) !important;
+}
+
+/* Tooltip */
+html:not(.canvas-light-mode).ui-tooltip {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* ================================================
+   SLIDE-OUT NAVIGATION TRAY (Groups, Courses, Account)
+   ================================================ */
+html:not(.canvas-light-mode)[class*="navigation-tray"],
+html:not(.canvas-light-mode)[class*="NavigationTray"],
+html:not(.canvas-light-mode)[class*="tray__content"],
+html:not(.canvas-light-mode)[class*="Tray__content"],
+html:not(.canvas-light-mode)[class*="tray-content"],
+html:not(.canvas-light-mode).navigation-tray-container,
+html:not(.canvas-light-mode).ReactTray__Content,
+html:not(.canvas-light-mode)[role="dialog"][aria-label*="Tray"],
+html:not(.canvas-light-mode)[class*="css-"][class*="view"],
+html:not(.canvas-light-mode)aside[class*="css-"],
+html:not(.canvas-light-mode)[data-position] > div,
+html:not(.canvas-light-mode)[class*="tray"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Aggressive targeting for slide-out trays - catch all nested divs */
+html:not(.canvas-light-mode) #nav-tray-portal div,
+html:not(.canvas-light-mode) #nav-tray-portal span,
+html:not(.canvas-light-mode) #nav-tray-portal aside,
+html:not(.canvas-light-mode) #nav-tray-portal section,
+html:not(.canvas-light-mode) #nav-tray-portal nav,
+html:not(.canvas-light-mode) #nav-tray-portal ul,
+html:not(.canvas-light-mode) #nav-tray-portal li,
+html:not(.canvas-light-mode) #nav-tray-portal h1,
+html:not(.canvas-light-mode) #nav-tray-portal h2,
+html:not(.canvas-light-mode) #nav-tray-portal h3,
+html:not(.canvas-light-mode) #nav-tray-portal p {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Tray links should use accent color */
+html:not(.canvas-light-mode) #nav-tray-portal a {
+  color: var(--dark-accent) !important;
+}
+
+/* Tray close button */
+html:not(.canvas-light-mode) #nav-tray-portal button {
+  background-color: transparent !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode) #nav-tray-portal button:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Tray list item hover */
+html:not(.canvas-light-mode) #nav-tray-portal li:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Secondary/muted text in trays (like term info, descriptions) */
+html:not(.canvas-light-mode) #nav-tray-portal [class*="secondary"],
+html:not(.canvas-light-mode) #nav-tray-portal [class*="muted"],
+html:not(.canvas-light-mode) #nav-tray-portal small {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* Tray headers and close buttons */
+html:not(.canvas-light-mode)[class*="tray"] header,
+html:not(.canvas-light-mode)[class*="Tray"] header,
+html:not(.canvas-light-mode)[class*="tray__header"],
+html:not(.canvas-light-mode)[class*="closeButton"],
+html:not(.canvas-light-mode)[class*="CloseButton"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Tray list items */
+html:not(.canvas-light-mode)[class*="tray"] ul,
+html:not(.canvas-light-mode)[class*="tray"] li,
+html:not(.canvas-light-mode)[class*="tray"] a,
+html:not(.canvas-light-mode)[class*="Tray"] ul,
+html:not(.canvas-light-mode)[class*="Tray"] li,
+html:not(.canvas-light-mode)[class*="view--block"] {
+  background-color: transparent !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode)[class*="tray"] li:hover,
+html:not(.canvas-light-mode)[class*="Tray"] li:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Specific Canvas InstUI tray components */
+html:not(.canvas-light-mode)[class*="fOyUs"],
+html:not(.canvas-light-mode)[class*="dJCgj"],
+html:not(.canvas-light-mode)[class*="fQrhr"],
+html:not(.canvas-light-mode)[class*="bGBmG"],
+html:not(.canvas-light-mode)[class*="cSXVs"],
+html:not(.canvas-light-mode)[class*="byAnM"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Portal and overlay elements (trays render in portals) */
+html:not(.canvas-light-mode)#nav-tray-portal,
+html:not(.canvas-light-mode)#nav-tray-portal > div,
+html:not(.canvas-light-mode)#nav-tray-portal > div > div,
+html:not(.canvas-light-mode)#nav-tray-portal > span,
+html:not(.canvas-light-mode)#nav-tray-portal > span > span,
+html:not(.canvas-light-mode)#nav-tray-portal > span > span > div,
+html:not(.canvas-light-mode)#nav-tray-portal [role="dialog"],
+html:not(.canvas-light-mode)[class*="portal"],
+html:not(.canvas-light-mode)[data-portal] > div {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Course/Group list in tray */
+html:not(.canvas-light-mode)[class*="courses-tray"],
+html:not(.canvas-light-mode)[class*="groups-tray"],
+html:not(.canvas-light-mode)[class*="account-tray"],
+html:not(.canvas-light-mode)[class*="profile-tray"] {
+  background-color: var(--dark-bg-secondary) !important;
+}
+
+/* ================================================
+   DASHBOARD SPECIFIC STYLES
+   ================================================ */
+html:not(.canvas-light-mode).ic-Dashboard-header,
+html:not(.canvas-light-mode).ic-Dashboard-header__layout,
+html:not(.canvas-light-mode).ic-Dashboard-header__title,
+html:not(.canvas-light-mode)#dashboard_header_container,
+html:not(.canvas-light-mode)#dashboard-planner-header,
+html:not(.canvas-light-mode).dashboard-header,
+html:not(.canvas-light-mode)[data-view="dashboard"],
+html:not(.canvas-light-mode).unpublished_courses_redesign {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Dashboard title bar and surrounding area */
+html:not(.canvas-light-mode) #dashboard,
+html:not(.canvas-light-mode) #dashboard > div,
+html:not(.canvas-light-mode) #dashboard h1,
+html:not(.canvas-light-mode) #dashboard-planner,
+html:not(.canvas-light-mode) #dashboard-planner > div,
+html:not(.canvas-light-mode) #dashboard-planner-header,
+html:not(.canvas-light-mode) #dashboard-planner-header > div,
+html:not(.canvas-light-mode) #dashboard-planner-header-container,
+html:not(.canvas-light-mode) [data-testid="dashboard"],
+html:not(.canvas-light-mode) [data-testid="dashboard"] > div,
+html:not(.canvas-light-mode) .ic-Dashboard-header__layout,
+html:not(.canvas-light-mode) .ic-Dashboard-header__actions,
+html:not(.canvas-light-mode) .dashboard-toggle-button-layout {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Account notifications wrapper at top of dashboard */
+html:not(.canvas-light-mode) #dashboard-account-notifications,
+html:not(.canvas-light-mode) #dashboard-account-notifications > div,
+html:not(.canvas-light-mode) .account-notifications,
+html:not(.canvas-light-mode) .account-notifications > div,
+html:not(.canvas-light-mode) [class*="AccountNotifications"],
+html:not(.canvas-light-mode) [class*="accountNotifications"] {
+  background-color: var(--dark-bg-primary) !important;
+}
+
+/* Dashboard Activity Stream */
+html:not(.canvas-light-mode).ic-activity-stream,
+html:not(.canvas-light-mode).ic-activity-stream__header,
+html:not(.canvas-light-mode).stream-item,
+html:not(.canvas-light-mode).stream_header,
+html:not(.canvas-light-mode)#dashboard-activity,
+html:not(.canvas-light-mode).recent-activity-header {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Planner / To Do List */
+html:not(.canvas-light-mode).planner,
+html:not(.canvas-light-mode).planner-header,
+html:not(.canvas-light-mode).planner-item,
+html:not(.canvas-light-mode).planner-day,
+html:not(.canvas-light-mode)[class*="planner"],
+html:not(.canvas-light-mode)[class*="Planner"],
+html:not(.canvas-light-mode).PlannerItem,
+html:not(.canvas-light-mode)[class*="Day__root"],
+html:not(.canvas-light-mode)[class*="PlannerItem"] {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* To Do Sidebar */
+html:not(.canvas-light-mode).todo-list,
+html:not(.canvas-light-mode).todo-list-header,
+html:not(.canvas-light-mode)#right-side,
+html:not(.canvas-light-mode)#right-side-wrapper,
+html:not(.canvas-light-mode).right-side-list,
+html:not(.canvas-light-mode).events_list,
+html:not(.canvas-light-mode).coming_up,
+html:not(.canvas-light-mode).Sidebar__TodoListContainer,
+html:not(.canvas-light-mode)[class*="todo"],
+html:not(.canvas-light-mode)[class*="Todo"],
+html:not(.canvas-light-mode)aside#right-side {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode)#right-side h2,
+html:not(.canvas-light-mode)#right-side h3,
+html:not(.canvas-light-mode)#right-side h4 {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Dashboard Cards View */
+html:not(.canvas-light-mode).ic-DashboardCard__box,
+html:not(.canvas-light-mode).ic-DashboardCard__background,
+html:not(.canvas-light-mode)[class*="DashboardCard"] {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+/* Recent Feedback */
+html:not(.canvas-light-mode).recent-feedback,
+html:not(.canvas-light-mode).recent_feedback,
+html:not(.canvas-light-mode)[class*="feedback"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* ================================================
+   GLOBAL ANNOUNCEMENT BARS / NOTIFICATIONS
+   ================================================ */
+html:not(.canvas-light-mode).ic-notification,
+html:not(.canvas-light-mode)#flash_message_holder,
+html:not(.canvas-light-mode).notification,
+html:not(.canvas-light-mode)[class*="global-message"],
+html:not(.canvas-light-mode).globalNavigation-notification {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Dashboard global announcements - aggressive targeting */
+html:not(.canvas-light-mode) .ic-notification__content,
+html:not(.canvas-light-mode) .ic-notification__message,
+html:not(.canvas-light-mode) .ic-notification__title,
+html:not(.canvas-light-mode) .ic-notification__admin-message,
+html:not(.canvas-light-mode) .ic-notification *,
+html:not(.canvas-light-mode) [class*="ic-notification"] *,
+html:not(.canvas-light-mode) .global-message-container,
+html:not(.canvas-light-mode) .global-message-container * {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* The blue info popup */
+html:not(.canvas-light-mode) [role="alert"],
+html:not(.canvas-light-mode) [class*="flashalert"],
+html:not(.canvas-light-mode) #flashalert_message_holder,
+html:not(.canvas-light-mode) #flashalert_message_holder *,
+html:not(.canvas-light-mode) [class*="Alert-"],
+html:not(.canvas-light-mode) [class*="alert-content"] {
+  background-color: var(--dark-bg-tertiary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Global Announcements at top of dashboard */
+html:not(.canvas-light-mode).globalAnnouncements,
+html:not(.canvas-light-mode).ic-announcement-row,
+html:not(.canvas-light-mode).ic-announcement-row__content,
+html:not(.canvas-light-mode)#global_nav_tray_container,
+html:not(.canvas-light-mode)#announcementWrapper,
+html:not(.canvas-light-mode)[class*="announcement"],
+html:not(.canvas-light-mode)[class*="Announcement"],
+html:not(.canvas-light-mode).announcement-content,
+html:not(.canvas-light-mode).announcement-title {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Canvas Global Announcements */
+html:not(.canvas-light-mode)#dashboard-global-announcements,
+html:not(.canvas-light-mode).global-announcement,
+html:not(.canvas-light-mode).global_announcement,
+html:not(.canvas-light-mode)[data-testid*="announcement"],
+html:not(.canvas-light-mode)[data-testid*="global"],
+html:not(.canvas-light-mode).ic-item-row,
+html:not(.canvas-light-mode).ic-item-row__content-col {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Account notification / Institution announcements */
+html:not(.canvas-light-mode).ic-notification__content,
+html:not(.canvas-light-mode).ic-notification__title,
+html:not(.canvas-light-mode).ic-notification__message,
+html:not(.canvas-light-mode).ic-notification__actions,
+html:not(.canvas-light-mode).AccountNotification,
+html:not(.canvas-light-mode)[class*="AccountNotification"],
+html:not(.canvas-light-mode).account_notification,
+html:not(.canvas-light-mode)#account-notifications,
+html:not(.canvas-light-mode).account-notification-content {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* The colored left border announcements visible in screenshot */
+html:not(.canvas-light-mode).ic-flash-static,
+html:not(.canvas-light-mode).ic-flash-info,
+html:not(.canvas-light-mode).ic-flash-success,
+html:not(.canvas-light-mode).ic-flash-warning,
+html:not(.canvas-light-mode).ic-flash-error,
+html:not(.canvas-light-mode)[class*="flash"],
+html:not(.canvas-light-mode)[class*="Flash"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Messages/Banners with school branding */
+html:not(.canvas-light-mode).message-content,
+html:not(.canvas-light-mode).message-author,
+html:not(.canvas-light-mode)[class*="message-"],
+html:not(.canvas-light-mode).ic-message,
+html:not(.canvas-light-mode).banner,
+html:not(.canvas-light-mode)[class*="banner"],
+html:not(.canvas-light-mode)[class*="Banner"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Alert/Info boxes */
+html:not(.canvas-light-mode).alert-info,
+html:not(.canvas-light-mode).alert-success,
+html:not(.canvas-light-mode).alert-warning,
+html:not(.canvas-light-mode).alert-danger,
+html:not(.canvas-light-mode).alert-error,
+html:not(.canvas-light-mode)[role="alert"],
+html:not(.canvas-light-mode)[class*="alert"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* React-based announcements */
+html:not(.canvas-light-mode)[class*="AnnouncementRow"],
+html:not(.canvas-light-mode)[class*="announcementRow"],
+html:not(.canvas-light-mode)[class*="AccountNotificationItem"],
+html:not(.canvas-light-mode)div[data-component="AccountNotificationItem"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Account notification items - the ones with colored left border */
+html:not(.canvas-light-mode) .ic-notification,
+html:not(.canvas-light-mode) .ic-notification > div,
+html:not(.canvas-light-mode) .ic-notification div,
+html:not(.canvas-light-mode) .ic-notification span,
+html:not(.canvas-light-mode) .ic-notification p,
+html:not(.canvas-light-mode) .ic-notification h2,
+html:not(.canvas-light-mode) .ic-notification h3,
+html:not(.canvas-light-mode) [class*="Notification"] > div,
+html:not(.canvas-light-mode) [class*="notification-"] div {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Target by structure: elements that are direct children of colored-border containers */
+html:not(.canvas-light-mode) div[style*="border-left"],
+html:not(.canvas-light-mode) div[style*="border-left"] > div,
+html:not(.canvas-light-mode) [style*="border-left-color"] > div {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Ensure close buttons are visible */
+html:not(.canvas-light-mode).ic-notification__close-button,
+html:not(.canvas-light-mode).close-notification,
+html:not(.canvas-light-mode)[class*="notification"] button,
+html:not(.canvas-light-mode)[class*="Notification"] button {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Source/attribution lines like "This is a message from..." */
+html:not(.canvas-light-mode).ic-notification__source,
+html:not(.canvas-light-mode)[class*="notification-source"],
+html:not(.canvas-light-mode)[class*="message-source"],
+html:not(.canvas-light-mode)small,
+html:not(.canvas-light-mode).muted,
+html:not(.canvas-light-mode).text-muted {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* ================================================
+   INSTUI COMPONENTS (Canvas's React UI library)
+   ================================================ */
+
+/* Generic View components */
+html:not(.canvas-light-mode)[class*="view--"],
+html:not(.canvas-light-mode)[class*="View-"],
+html:not(.canvas-light-mode)[class*="-view__"] {
+  background-color: inherit;
+  color: inherit;
+}
+
+/* Flex components */
+html:not(.canvas-light-mode)[class*="flex--"],
+html:not(.canvas-light-mode)[class*="Flex-"] {
+  background-color: inherit;
+}
+
+/* List components */
+html:not(.canvas-light-mode)[class*="list--"],
+html:not(.canvas-light-mode)[class*="List-"],
+html:not(.canvas-light-mode)[class*="listItem"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Heading components */
+html:not(.canvas-light-mode)[class*="heading--"],
+html:not(.canvas-light-mode)[class*="Heading-"] {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Text components */
+html:not(.canvas-light-mode)[class*="text--"],
+html:not(.canvas-light-mode)[class*="Text-"] {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Link components */
+html:not(.canvas-light-mode)[class*="link--"],
+html:not(.canvas-light-mode)[class*="Link-"] {
+  color: var(--dark-accent) !important;
+}
+
+/* ================================================
+   CATCH-ALL FOR WHITE BACKGROUNDS
+   ================================================ */
+html:not(.canvas-light-mode)div[style*="background-color: rgb(255, 255, 255)"],
+html:not(.canvas-light-mode)div[style*="background-color: white"],
+html:not(.canvas-light-mode)div[style*="background: rgb(255, 255, 255)"],
+html:not(.canvas-light-mode)div[style*="background: white"],
+html:not(.canvas-light-mode)[style*="background-color:#fff"],
+html:not(.canvas-light-mode)[style*="background-color: #fff"],
+html:not(.canvas-light-mode)[style*="background-color:#ffffff"],
+html:not(.canvas-light-mode)[style*="background-color: #ffffff"] {
+  background-color: var(--dark-bg-secondary) !important;
+}
+
+/* Nuclear option: target #content and all descendants */
+html:not(.canvas-light-mode) #content div,
+html:not(.canvas-light-mode) #content section,
+html:not(.canvas-light-mode) #content article,
+html:not(.canvas-light-mode) #content aside,
+html:not(.canvas-light-mode) #content header,
+html:not(.canvas-light-mode) #content footer,
+html:not(.canvas-light-mode) #content main,
+html:not(.canvas-light-mode) #content span,
+html:not(.canvas-light-mode) #content p {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Reset primary containers to use primary bg */
+html:not(.canvas-light-mode) #content,
+html:not(.canvas-light-mode) #content > div:not([class*="notification"]):not([class*="Notification"]):not(.ic-notification) {
+  background-color: var(--dark-bg-primary) !important;
+}
+
+/* Ensure link colors are preserved */
+html:not(.canvas-light-mode) #content a {
+  color: var(--dark-accent) !important;
+}
+
+/* Force dark on any remaining white elements */
+html:not(.canvas-light-mode).bg-white,
+html:not(.canvas-light-mode).background-white,
+html:not(.canvas-light-mode)[class*="white-bg"],
+html:not(.canvas-light-mode)[class*="bgWhite"],
+html:not(.canvas-light-mode)[class*="bg-white"] {
+  background-color: var(--dark-bg-secondary) !important;
+}
+
+/* ================================================
+   AGGRESSIVE FALLBACK FOR ALL REMAINING ELEMENTS
+   ================================================ */
+
+/* Target all divs that might have white backgrounds */
+html:not(.canvas-light-mode)#dashboard-wrapper,
+html:not(.canvas-light-mode)#dashboard-wrapper > div,
+html:not(.canvas-light-mode)#dashboard-wrapper > div > div,
+html:not(.canvas-light-mode)#DashboardCard_Container,
+html:not(.canvas-light-mode)#flashalert_message_holder,
+html:not(.canvas-light-mode)#flash_screenreader_holder,
+html:not(.canvas-light-mode).ic-Layout-wrapper,
+html:not(.canvas-light-mode).ic-Layout-columns,
+html:not(.canvas-light-mode).ic-Layout-watermark {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Any element directly inside body or main containers */
+html:not(.canvas-light-mode)> div,
+html:not(.canvas-light-mode)#application > div,
+html:not(.canvas-light-mode)#wrapper > div,
+html:not(.canvas-light-mode)#main > div,
+html:not(.canvas-light-mode)#content > div {
+  background-color: inherit;
+}
+
+/* React root containers */
+html:not(.canvas-light-mode)[id^="react-"],
+html:not(.canvas-light-mode)[id*="_root"],
+html:not(.canvas-light-mode)[data-reactroot] {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Force all inner content areas */
+html:not(.canvas-light-mode).ic-Layout-contentMain > div,
+html:not(.canvas-light-mode).ic-app-main-content > div,
+html:not(.canvas-light-mode)#not_right_side > div {
+  background-color: var(--dark-bg-primary) !important;
+}
+
+/* Specifically target announcement containers by structure */
+html:not(.canvas-light-mode)#content > div:first-child,
+html:not(.canvas-light-mode).ic-app-main-content > div:first-child {
+  background-color: var(--dark-bg-primary) !important;
+}
+
+/* Any remaining cards or boxes */
+html:not(.canvas-light-mode)[class*="card"],
+html:not(.canvas-light-mode)[class*="Card"],
+html:not(.canvas-light-mode)[class*="box"],
+html:not(.canvas-light-mode)[class*="Box"],
+html:not(.canvas-light-mode)[class*="panel"],
+html:not(.canvas-light-mode)[class*="Panel"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+/* Ensure SVG and icon visibility */
+html:not(.canvas-light-mode)svg path,
+html:not(.canvas-light-mode)svg circle,
+html:not(.canvas-light-mode)svg rect {
+  fill: currentColor;
+}
+
+html:not(.canvas-light-mode).icon-x,
+html:not(.canvas-light-mode).icon-close,
+html:not(.canvas-light-mode)[class*="close"],
+html:not(.canvas-light-mode)[class*="Close"] {
+  color: var(--dark-text-primary) !important;
+}
+
+/* ================================================
+   IMMERSIVE READER / ACCESSIBILITY BUTTONS
+   ================================================ */
+html:not(.canvas-light-mode) [class*="immersive"],
+html:not(.canvas-light-mode) [class*="Immersive"],
+html:not(.canvas-light-mode) [aria-label*="Immersive"],
+html:not(.canvas-light-mode) [aria-label*="Reader"],
+html:not(.canvas-light-mode) [data-testid*="immersive"],
+html:not(.canvas-light-mode) .immersive-reader-button,
+html:not(.canvas-light-mode) #immersive-reader-btn,
+html:not(.canvas-light-mode) button[class*="immersive"],
+html:not(.canvas-light-mode) a[class*="immersive"],
+html:not(.canvas-light-mode) .ir-button,
+html:not(.canvas-light-mode) #ir-button,
+html:not(.canvas-light-mode) [id*="immersive"],
+html:not(.canvas-light-mode) [id*="Immersive"] {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Microsoft Immersive Reader - target by button text content structure */
+html:not(.canvas-light-mode) button:has(svg + span),
+html:not(.canvas-light-mode) #right-side button,
+html:not(.canvas-light-mode) aside button,
+html:not(.canvas-light-mode) [role="complementary"] button {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Target the specific button in the header/breadcrumb area */
+html:not(.canvas-light-mode) #breadcrumbs + button,
+html:not(.canvas-light-mode) #breadcrumbs ~ button,
+html:not(.canvas-light-mode) .ic-app-crumbs + button,
+html:not(.canvas-light-mode) .ic-app-crumbs ~ button,
+html:not(.canvas-light-mode) header button,
+html:not(.canvas-light-mode) [role="banner"] button {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Force any button in top area with white background */
+html:not(.canvas-light-mode) .ic-app-header button,
+html:not(.canvas-light-mode) .ic-app-header__main-navigation button,
+html:not(.canvas-light-mode) #header button,
+html:not(.canvas-light-mode) #topbar button {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode) .immersive-reader-button:hover,
+html:not(.canvas-light-mode) [class*="immersive"]:hover,
+html:not(.canvas-light-mode) #right-side button:hover,
+html:not(.canvas-light-mode) aside button:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Immersive Reader - exact targeting from DOM inspection */
+html:not(.canvas-light-mode) #immersive_reader_mount_point,
+html:not(.canvas-light-mode) #immersive_reader_mount_point button,
+html:not(.canvas-light-mode) #immersive_reader_mount_point > div,
+html:not(.canvas-light-mode) #immersive_reader_mount_point > div > button,
+html:not(.canvas-light-mode) .right-of-crumbs,
+html:not(.canvas-light-mode) .right-of-crumbs button,
+html:not(.canvas-light-mode) .right-of-crumbs-no-reverse,
+html:not(.canvas-light-mode) .right-of-crumbs-no-reverse button,
+html:not(.canvas-light-mode) [class*="baseButton"],
+html:not(.canvas-light-mode) [class*="-baseButton"],
+html:not(.canvas-light-mode) button[class*="css-"][class*="view"] {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode) #immersive_reader_mount_point button:hover,
+html:not(.canvas-light-mode) .right-of-crumbs button:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* ================================================
+   COURSE PAGE SPECIFIC STYLES
+   ================================================ */
+
+/* Course header/breadcrumb banner - keep school branding colors on left */
+html:not(.canvas-light-mode) #breadcrumbs,
+html:not(.canvas-light-mode) .ic-app-nav-toggle-and-logo__container,
+html:not(.canvas-light-mode) .mobile-header-title {
+  background-color: var(--dark-bg-secondary) !important;
+}
+
+/* Right sidebar buttons (View Course Stream, Calendar, Notifications) */
+html:not(.canvas-light-mode) .course-options,
+html:not(.canvas-light-mode) .course-options a,
+html:not(.canvas-light-mode) .course-options button,
+html:not(.canvas-light-mode) #course_show_secondary,
+html:not(.canvas-light-mode) #course_show_secondary a,
+html:not(.canvas-light-mode) .ic-sidebar-content,
+html:not(.canvas-light-mode) .ic-sidebar-content a,
+html:not(.canvas-light-mode) [class*="CourseHomeOptions"],
+html:not(.canvas-light-mode) [class*="course-options"],
+html:not(.canvas-light-mode) a[href*="activity_stream"],
+html:not(.canvas-light-mode) a[href*="calendar"],
+html:not(.canvas-light-mode) .Button--course-context {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+html:not(.canvas-light-mode) .course-options a:hover,
+html:not(.canvas-light-mode) #course_show_secondary a:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Course title area */
+html:not(.canvas-light-mode) .course-title,
+html:not(.canvas-light-mode) .context_module_item,
+html:not(.canvas-light-mode) #course_home_content,
+html:not(.canvas-light-mode) .ic-HomepageContent,
+html:not(.canvas-light-mode) .user_content,
+html:not(.canvas-light-mode) .show-content {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Syllabus / Wiki content area */
+html:not(.canvas-light-mode) #wiki_page_show,
+html:not(.canvas-light-mode) .wiki-content,
+html:not(.canvas-light-mode) .syllabus,
+html:not(.canvas-light-mode) #syllabus,
+html:not(.canvas-light-mode) .syllabus_content {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* To Do / Sidebar sections */
+html:not(.canvas-light-mode) .ic-Sidebar,
+html:not(.canvas-light-mode) .Sidebar,
+html:not(.canvas-light-mode) aside[role="complementary"],
+html:not(.canvas-light-mode) .sidebar-content,
+html:not(.canvas-light-mode) .todo-list-container {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Embedded content / iframes backgrounds */
+html:not(.canvas-light-mode) .user_content iframe,
+html:not(.canvas-light-mode) .wiki-content iframe {
+  background-color: var(--dark-bg-secondary) !important;
+}
+
+/* Any remaining white containers */
+html:not(.canvas-light-mode) .ic-Action-header,
+html:not(.canvas-light-mode) .ic-Action-header__Primary,
+html:not(.canvas-light-mode) .ic-Action-header__Secondary {
+  background-color: var(--dark-bg-primary) !important;
+}
+
+/* Force all button-like links in sidebar */
+html:not(.canvas-light-mode) #right-side a.btn,
+html:not(.canvas-light-mode) #right-side a.Button,
+html:not(.canvas-light-mode) #right-side button,
+html:not(.canvas-light-mode) aside a.btn,
+html:not(.canvas-light-mode) aside a.Button,
+html:not(.canvas-light-mode) aside button {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Recent Feedback section */
+html:not(.canvas-light-mode) .recent_feedback,
+html:not(.canvas-light-mode) #right-side .recent_feedback,
+html:not(.canvas-light-mode) .right-side-list li {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* To Do items - icons and date text should be visible */
+html:not(.canvas-light-mode) #right-side .todo-list-item,
+html:not(.canvas-light-mode) #right-side .todo-list-item *,
+html:not(.canvas-light-mode) .todo-list .todo-list-item,
+html:not(.canvas-light-mode) [class*="todo"] [class*="icon"],
+html:not(.canvas-light-mode) [class*="Todo"] [class*="icon"],
+html:not(.canvas-light-mode) .todo-list svg,
+html:not(.canvas-light-mode) .todo-list-item svg,
+html:not(.canvas-light-mode) #right-side svg {
+  color: var(--dark-text-primary) !important;
+  fill: var(--dark-text-primary) !important;
+}
+
+/* To Do date/time text - make it white/light */
+html:not(.canvas-light-mode) .todo-list-item .todo-details,
+html:not(.canvas-light-mode) .todo-list-item time,
+html:not(.canvas-light-mode) .todo-list-item [class*="date"],
+html:not(.canvas-light-mode) .todo-list-item [class*="time"],
+html:not(.canvas-light-mode) .todo-list-item small,
+html:not(.canvas-light-mode) .todo-list-item .secondary,
+html:not(.canvas-light-mode) #right-side time,
+html:not(.canvas-light-mode) #right-side [class*="date"],
+html:not(.canvas-light-mode) #right-side small,
+html:not(.canvas-light-mode) [class*="Todo"] time,
+html:not(.canvas-light-mode) [class*="Todo"] [class*="secondary"],
+html:not(.canvas-light-mode) [class*="todo"] time,
+html:not(.canvas-light-mode) [class*="todo"] small,
+html:not(.canvas-light-mode) #right-side .todo-list-item span,
+html:not(.canvas-light-mode) #right-side .todo-list-item div,
+html:not(.canvas-light-mode) #right-side .todo-list-item p,
+html:not(.canvas-light-mode) .ToDoSidebarItem span,
+html:not(.canvas-light-mode) .ToDoSidebarItem div,
+html:not(.canvas-light-mode) [class*="ToDoSidebarItem"] span,
+html:not(.canvas-light-mode) [class*="ToDoSidebarItem"] div,
+html:not(.canvas-light-mode) [class*="todo-list"] span,
+html:not(.canvas-light-mode) [class*="todo-list"] div {
+  color: #ffffff !important;
+}
+
+/* Force all text in To Do section to be visible */
+html:not(.canvas-light-mode) #right-side li span,
+html:not(.canvas-light-mode) #right-side li div,
+html:not(.canvas-light-mode) #right-side li p,
+html:not(.canvas-light-mode) #right-side li time,
+html:not(.canvas-light-mode) #right-side .right-side-list span,
+html:not(.canvas-light-mode) #right-side .right-side-list div {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Specifically target gray/muted text and make it lighter */
+html:not(.canvas-light-mode) #right-side [style*="color"],
+html:not(.canvas-light-mode) #right-side .text-muted,
+html:not(.canvas-light-mode) #right-side .muted,
+html:not(.canvas-light-mode) #right-side [class*="muted"],
+html:not(.canvas-light-mode) #right-side [class*="secondary"],
+html:not(.canvas-light-mode) #right-side [class*="subtle"] {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* To Do sidebar date - exact targeting from DOM inspection */
+html:not(.canvas-light-mode) .ToDoSidebarItem__InformationRow,
+html:not(.canvas-light-mode) .ToDoSidebarItem__InformationRow li,
+html:not(.canvas-light-mode) .ToDoSidebarItem__InformationRow span,
+html:not(.canvas-light-mode) [class*="ToDoSidebarItem__InformationRow"],
+html:not(.canvas-light-mode) [class*="ToDoSidebarItem__InformationRow"] li,
+html:not(.canvas-light-mode) [class*="ToDoSidebarItem"] li,
+html:not(.canvas-light-mode) [data-testid*="ToDoSidebarItem"] li,
+html:not(.canvas-light-mode) [class*="inlineListItem"],
+html:not(.canvas-light-mode) li[class*="css-"][class*="inlineListItem"],
+html:not(.canvas-light-mode) li[class*="css-"][class*="view--inlineBlock"] {
+  color: #b3b3b3 !important;
+}
+
+/* Force ToDoSidebar text colors */
+html:not(.canvas-light-mode) [class*="ToDoSidebar"] li,
+html:not(.canvas-light-mode) [class*="ToDoSidebar"] span,
+html:not(.canvas-light-mode) [class*="ToDoSidebar"] div,
+html:not(.canvas-light-mode) [data-testid*="todo"] li,
+html:not(.canvas-light-mode) .todo-list li[class*="css-"] {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* Ensure all icons in sidebar are visible */
+html:not(.canvas-light-mode) #right-side i,
+html:not(.canvas-light-mode) #right-side .icon,
+html:not(.canvas-light-mode) #right-side [class*="Icon"],
+html:not(.canvas-light-mode) aside i,
+html:not(.canvas-light-mode) aside .icon,
+html:not(.canvas-light-mode) aside [class*="Icon"] {
+  color: var(--dark-text-primary) !important;
+}
