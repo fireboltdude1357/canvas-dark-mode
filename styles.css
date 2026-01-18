@@ -104,7 +104,6 @@ html:not(.canvas-light-mode).nav-pills > li.active > a {
 
 /* Cards and modules */
 html:not(.canvas-light-mode).ic-DashboardCard,
-html:not(.canvas-light-mode).ic-DashboardCard__header,
 html:not(.canvas-light-mode).ic-DashboardCard__action-container,
 html:not(.canvas-light-mode).card-content,
 html:not(.canvas-light-mode).context_module,
@@ -115,12 +114,27 @@ html:not(.canvas-light-mode).item-group-condensed .ig-list .ig-row {
   border-color: var(--dark-border) !important;
 }
 
+/* Dashboard card headers - PRESERVE custom course colors */
+html:not(.canvas-light-mode) .ic-DashboardCard__header,
+html:not(.canvas-light-mode) .ic-DashboardCard__header-hero,
+html:not(.canvas-light-mode) [class*="DashboardCard__header-hero"],
+html:not(.canvas-light-mode) .ic-DashboardCard__header-image {
+  /* Don't override background - let course colors show */
+  background-color: inherit;
+}
+
+/* Ensure text on colored card headers is visible (white) */
+html:not(.canvas-light-mode) .ic-DashboardCard__header-title,
+html:not(.canvas-light-mode) .ic-DashboardCard__header-subtitle,
+html:not(.canvas-light-mode) .ic-DashboardCard__header-term {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
 html:not(.canvas-light-mode).ic-DashboardCard:hover {
   background-color: var(--dark-bg-tertiary) !important;
 }
 
-html:not(.canvas-light-mode).ic-DashboardCard__header-title,
-html:not(.canvas-light-mode).ic-DashboardCard__header-subtitle,
 html:not(.canvas-light-mode).ig-title,
 html:not(.canvas-light-mode).ig-info {
   color: var(--dark-text-primary) !important;
@@ -923,14 +937,15 @@ html:not(.canvas-light-mode)[style*="background-color: #ffffff"] {
 }
 
 /* Nuclear option: target #content and all descendants */
-html:not(.canvas-light-mode) #content div,
+/* Exclude dashboard card headers so they keep their custom colors */
+html:not(.canvas-light-mode) #content div:not(.ic-DashboardCard__header):not(.ic-DashboardCard__header-hero):not([class*="DashboardCard__header"]):not([style*="background-color"]),
 html:not(.canvas-light-mode) #content section,
 html:not(.canvas-light-mode) #content article,
 html:not(.canvas-light-mode) #content aside,
-html:not(.canvas-light-mode) #content header,
+html:not(.canvas-light-mode) #content header:not(.ic-DashboardCard__header),
 html:not(.canvas-light-mode) #content footer,
 html:not(.canvas-light-mode) #content main,
-html:not(.canvas-light-mode) #content span,
+html:not(.canvas-light-mode) #content span:not(.ic-DashboardCard__header-hero):not([style*="background"]),
 html:not(.canvas-light-mode) #content p {
   background-color: var(--dark-bg-secondary) !important;
   color: var(--dark-text-primary) !important;
