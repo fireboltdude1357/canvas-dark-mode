@@ -63,41 +63,24 @@ html:not(.canvas-light-mode).ic-app-main-content__secondary {
   color: var(--dark-text-primary) !important;
 }
 
-/* Navigation */
-html:not(.canvas-light-mode)#left-side,
-html:not(.canvas-light-mode).ic-app-nav-toggle-and-logo,
-html:not(.canvas-light-mode).ic-app-header,
-html:not(.canvas-light-mode).ic-app-header__main-navigation,
-html:not(.canvas-light-mode)nav[aria-label="Global Navigation"] {
-  background-color: var(--dark-bg-secondary) !important;
-}
+/* Navigation - preserve school branding colors */
+/* Don't override the main left navigation - let school theming show */
 
-html:not(.canvas-light-mode).ic-app-header__menu-list-item a,
-html:not(.canvas-light-mode).ic-app-header__menu-list-link {
-  color: var(--dark-text-primary) !important;
-}
+/* Let school branding handle nav link colors */
 
-html:not(.canvas-light-mode).ic-app-header__menu-list-item:hover,
-html:not(.canvas-light-mode).ic-app-header__menu-list-link:hover {
-  background-color: var(--dark-bg-hover) !important;
-}
-
-/* Side navigation */
+/* Side navigation - course/content navigation, not main left nav */
 html:not(.canvas-light-mode).section,
 html:not(.canvas-light-mode)#section-tabs,
-html:not(.canvas-light-mode).nav-pills > li > a,
 html:not(.canvas-light-mode)#section-tabs li a {
   background-color: var(--dark-bg-secondary) !important;
   color: var(--dark-text-primary) !important;
 }
 
-html:not(.canvas-light-mode)#section-tabs li a:hover,
-html:not(.canvas-light-mode).nav-pills > li > a:hover {
+html:not(.canvas-light-mode)#section-tabs li a:hover {
   background-color: var(--dark-bg-hover) !important;
 }
 
-html:not(.canvas-light-mode)#section-tabs li.section a.active,
-html:not(.canvas-light-mode).nav-pills > li.active > a {
+html:not(.canvas-light-mode)#section-tabs li.section a.active {
   background-color: var(--dark-accent) !important;
   color: white !important;
 }
@@ -608,6 +591,112 @@ html:not(.canvas-light-mode).ic-flash-error {
   border-color: var(--dark-border) !important;
 }
 
+/* Notification Settings Page */
+html:not(.canvas-light-mode) .notification-preferences,
+html:not(.canvas-light-mode) .notification-preferences-table,
+html:not(.canvas-light-mode) .notification-preferences table,
+html:not(.canvas-light-mode) #notification-preferences,
+html:not(.canvas-light-mode) [class*="NotificationPreferences"],
+html:not(.canvas-light-mode) [class*="notification-preferences"] {
+  background-color: var(--dark-bg-primary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Notification settings table rows */
+html:not(.canvas-light-mode) .notification-preferences tr,
+html:not(.canvas-light-mode) .notification-preferences td,
+html:not(.canvas-light-mode) .notification-preferences th,
+html:not(.canvas-light-mode) .notification-preferences tbody,
+html:not(.canvas-light-mode) .notification-preferences thead,
+html:not(.canvas-light-mode) #notification-preferences tr,
+html:not(.canvas-light-mode) #notification-preferences td,
+html:not(.canvas-light-mode) #notification-preferences th,
+html:not(.canvas-light-mode) [class*="NotificationPreferences"] tr,
+html:not(.canvas-light-mode) [class*="NotificationPreferences"] td,
+html:not(.canvas-light-mode) [class*="NotificationPreferences"] th {
+  background-color: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Notification category headers (Course Activities, Due Date, etc.) */
+html:not(.canvas-light-mode) .notification-group-name,
+html:not(.canvas-light-mode) .notification-group,
+html:not(.canvas-light-mode) [class*="category-name"],
+html:not(.canvas-light-mode) .category_name,
+html:not(.canvas-light-mode) .notification-pref-row td:first-child {
+  background-color: var(--dark-bg-tertiary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Notification info boxes at top */
+html:not(.canvas-light-mode) .notification-info-box,
+html:not(.canvas-light-mode) .ic-notification--admin-created,
+html:not(.canvas-light-mode) .notification_preferences_info,
+html:not(.canvas-light-mode) [class*="preferences"] .alert,
+html:not(.canvas-light-mode) [class*="preferences"] .ic-flash-info {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Settings for dropdown */
+html:not(.canvas-light-mode) .notification-settings-for,
+html:not(.canvas-light-mode) .notification-preferences select,
+html:not(.canvas-light-mode) #notification-preferences select,
+html:not(.canvas-light-mode) [class*="NotificationPreferences"] select {
+  background-color: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Profile/Settings pages - aggressive targeting */
+/* Exclude the main left navigation which has school branding */
+html:not(.canvas-light-mode) #profile-settings,
+html:not(.canvas-light-mode) .profile-settings,
+html:not(.canvas-light-mode) .communication_channels,
+html:not(.canvas-light-mode) #communication_channels {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+/* Table column headers on notification page */
+html:not(.canvas-light-mode) .notification-prefs-table th,
+html:not(.canvas-light-mode) .notification-prefs-table thead,
+html:not(.canvas-light-mode) table[class*="notification"] th,
+html:not(.canvas-light-mode) table[class*="notification"] thead {
+  background-color: var(--dark-bg-tertiary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Notification settings - target by data-testid */
+html:not(.canvas-light-mode) [data-testid="due_date"],
+html:not(.canvas-light-mode) [data-testid="grading_policies"],
+html:not(.canvas-light-mode) [data-testid="course_content"],
+html:not(.canvas-light-mode) [data-testid="files"],
+html:not(.canvas-light-mode) [data-testid="announcement"],
+html:not(.canvas-light-mode) [data-testid="announcement_created_by_you"],
+html:not(.canvas-light-mode) [data-testid="grading"],
+html:not(.canvas-light-mode) [data-testid="invitation"],
+html:not(.canvas-light-mode) [data-testid="notification_times"],
+html:not(.canvas-light-mode) [data-testid*="notification"],
+html:not(.canvas-light-mode) tr[data-testid],
+html:not(.canvas-light-mode) tr[data-testid] td {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Force all table cells in the content area */
+html:not(.canvas-light-mode) #content table td,
+html:not(.canvas-light-mode) #content table th,
+html:not(.canvas-light-mode) #content table tr,
+html:not(.canvas-light-mode) #content table thead,
+html:not(.canvas-light-mode) #content table tbody {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+  border-color: var(--dark-border) !important;
+}
+
 html:not(.canvas-light-mode).ic-flash-info {
   background-color: var(--dark-bg-tertiary) !important;
 }
@@ -1103,6 +1192,40 @@ html:not(.canvas-light-mode)[class*="View-"],
 html:not(.canvas-light-mode)[class*="-view__"] {
   background-color: inherit;
   color: inherit;
+}
+
+/* InstUI table components with dynamic class names */
+html:not(.canvas-light-mode) [class*="-view-cell"],
+html:not(.canvas-light-mode) [class*="-view-row"],
+html:not(.canvas-light-mode) [class*="-view-body"],
+html:not(.canvas-light-mode) [class*="-view-table"],
+html:not(.canvas-light-mode) [class*="-head"],
+html:not(.canvas-light-mode) td[class*="css-"],
+html:not(.canvas-light-mode) tr[class*="css-"],
+html:not(.canvas-light-mode) th[class*="css-"],
+html:not(.canvas-light-mode) thead[class*="css-"],
+html:not(.canvas-light-mode) tbody[class*="css-"],
+html:not(.canvas-light-mode) table[class*="css-"] {
+  background-color: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+/* InstUI table header cells */
+html:not(.canvas-light-mode) th[class*="css-"][class*="view"],
+html:not(.canvas-light-mode) [class*="rowHeader"],
+html:not(.canvas-light-mode) [class*="-view-rowHeader"] {
+  background-color: var(--dark-bg-tertiary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* InstUI flex and span elements with dynamic classes */
+html:not(.canvas-light-mode) span[class*="css-"][class*="view"],
+html:not(.canvas-light-mode) span[class*="css-"][class*="flex"],
+html:not(.canvas-light-mode) div[class*="css-"][class*="view"],
+html:not(.canvas-light-mode) div[class*="css-"][class*="flex"] {
+  background-color: inherit !important;
+  color: var(--dark-text-primary) !important;
 }
 
 /* Flex components */
